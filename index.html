@@ -1028,126 +1028,16 @@
       /* ════════════════════════════════════════════════
      TAMBAH PORTAL
   ════════════════════════════════════════════════ */
-      window.openModal = (id) => {
-        document.getElementById(id).classList.add("open");
-      };
-      window.closeModal = (id) => {
-        document.getElementById(id).classList.remove("open");
-      };
-
-      document.getElementById("btnOpenAdd").addEventListener("click", () => {
-        /* Reset form */
-        ["addName", "addUrl", "addDesc", "addIcon"].forEach((id) => {
-          document.getElementById(id).value = "";
-        });
-        document.getElementById("addCat").value = "Umum";
-        openModal("modalAdd");
-      });
-
-      window.submitAdd = async () => {
-        const name = document.getElementById("addName").value.trim();
-        const rawUrl = document.getElementById("addUrl").value.trim();
-        const desc = document.getElementById("addDesc").value.trim();
-        const cat = document.getElementById("addCat").value;
-        const icon = document.getElementById("addIcon").value.trim() || "🌐";
-
-        if (!name || !rawUrl) {
-          toast("Nama dan URL wajib diisi!", "error");
-          return;
-        }
-
-        /* Pastikan URL punya protokol */
-        const url = /^https?:\/\//i.test(rawUrl) ? rawUrl : "https://" + rawUrl;
-
-        try {
-          await push(ref(db, "links"), {
-            name,
-            url,
-            desc,
-            category: cat,
-            icon,
-            owner: currentUser.uid,
-            ownerEmail: currentUser.email,
-            createdAt: Date.now(),
-          });
-          toast("Portal berhasil ditambahkan!", "success");
-          closeModal("modalAdd");
-        } catch (err) {
-          toast("Gagal menyimpan: " + err.message, "error");
-        }
-      };
 
       /* ════════════════════════════════════════════════
      EDIT PORTAL
   ════════════════════════════════════════════════ */
-      function openEdit(id) {
-        const lnk = allLinks[id];
-        if (!lnk) return;
-        document.getElementById("editId").value = id;
-        document.getElementById("editName").value = lnk.name ?? "";
-        document.getElementById("editUrl").value = lnk.url ?? "";
-        document.getElementById("editDesc").value = lnk.desc ?? "";
-        document.getElementById("editCat").value = lnk.category ?? "Umum";
-        document.getElementById("editIcon").value = lnk.icon ?? "🌐";
-        openModal("modalEdit");
-      }
-
-      window.submitEdit = async () => {
-        const id = document.getElementById("editId").value;
-        const name = document.getElementById("editName").value.trim();
-        const url = document.getElementById("editUrl").value.trim();
-        const desc = document.getElementById("editDesc").value.trim();
-        const cat = document.getElementById("editCat").value;
-        const icon = document.getElementById("editIcon").value.trim() || "🌐";
-
-        if (!name || !url) {
-          toast("Nama dan URL wajib diisi!", "error");
-          return;
-        }
-        if (!id || !allLinks[id]) {
-          toast("Portal tidak ditemukan.", "error");
-          return;
-        }
-        /* Pastikan hanya pemilik yang bisa edit */
-        if (allLinks[id].owner !== currentUser.uid) {
-          toast("Anda tidak berhak mengedit portal ini.", "error");
-          return;
-        }
-
-        try {
-          await update(ref(db, "links/" + id), {
-            name,
-            url,
-            desc,
-            category: cat,
-            icon,
-          });
-          toast("Portal berhasil diperbarui!", "success");
-          closeModal("modalEdit");
-        } catch (err) {
-          toast("Gagal memperbarui: " + err.message, "error");
-        }
-      };
 
       /* ════════════════════════════════════════════════
      HAPUS PORTAL
   ════════════════════════════════════════════════ */
-      async function deleteLink(id) {
-        if (!allLinks[id]) return;
-        if (allLinks[id].owner !== currentUser.uid) {
-          toast("Anda tidak berhak menghapus portal ini.", "error");
-          return;
-        }
-        if (!confirm('Hapus portal "' + (allLinks[id].name ?? "") + '"?'))
-          return;
-        try {
-          await remove(ref(db, "links/" + id));
-          toast("Portal dihapus.", "info");
-        } catch (err) {
-          toast("Gagal menghapus: " + err.message, "error");
-        }
-      }
 
+    
       /* ════════════════════════════════════════════════
      FILTER KATEGORI
   ════════════════════════════════════════════════ */
