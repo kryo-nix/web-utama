@@ -735,132 +735,11 @@
     <!-- ══════════════════════════════════
        MODAL — TAMBAH PORTAL
   ══════════════════════════════════ -->
-    <div id="modalAdd" class="modal-overlay" role="dialog" aria-modal="true">
-      <div class="modal-box">
-        <button class="modal-close" onclick="closeModal('modalAdd')">✕</button>
-        <p class="modal-title">✦ Tambah Portal Baru</p>
-        <hr class="divider divider-gold" style="margin-bottom: 1rem" />
-
-        <div style="display: flex; flex-direction: column; gap: 0.85rem">
-          <div>
-            <label class="form-label-m" for="addName">NAMA PORTAL</label>
-            <input
-              id="addName"
-              type="text"
-              placeholder="Contoh: Google Search"
-              class="form-input-m" />
-          </div>
-          <div>
-            <label class="form-label-m" for="addUrl">URL / ALAMAT</label>
-            <input
-              id="addUrl"
-              type="url"
-              placeholder="https://www.example.com"
-              class="form-input-m" />
-          </div>
-          <div>
-            <label class="form-label-m" for="addDesc"
-              >DESKRIPSI (opsional)</label
-            >
-            <input
-              id="addDesc"
-              type="text"
-              placeholder="Keterangan singkat..."
-              class="form-input-m" />
-          </div>
-          <div>
-            <label class="form-label-m" for="addCat">KATEGORI</label>
-            <select id="addCat" class="form-input-m">
-              <option value="Umum">Umum</option>
-              <option value="Alat">Alat &amp; Utilitas</option>
-              <option value="Media">Media &amp; Hiburan</option>
-              <option value="Edukasi">Edukasi</option>
-              <option value="Sosial">Sosial &amp; Komunitas</option>
-              <option value="Lainnya">Lainnya</option>
-            </select>
-          </div>
-          <div>
-            <label class="form-label-m" for="addIcon">IKON (emoji)</label>
-            <input
-              id="addIcon"
-              type="text"
-              placeholder="🌐"
-              maxlength="5"
-              class="form-input-m" />
-          </div>
-        </div>
-
-        <div class="modal-actions">
-          <button type="button" onclick="submitAdd()" class="gold-btn">
-            ✦ SIMPAN PORTAL
-          </button>
-          <button
-            type="button"
-            onclick="closeModal('modalAdd')"
-            class="red-btn">
-            BATAL
-          </button>
-        </div>
-      </div>
-    </div>
-
+    
     <!-- ══════════════════════════════════
        MODAL — EDIT PORTAL
   ══════════════════════════════════ -->
-    <div id="modalEdit" class="modal-overlay" role="dialog" aria-modal="true">
-      <div class="modal-box">
-        <button class="modal-close" onclick="closeModal('modalEdit')">✕</button>
-        <p class="modal-title">✦ Edit Portal</p>
-        <hr class="divider divider-gold" style="margin-bottom: 1rem" />
-        <input type="hidden" id="editId" />
-
-        <div style="display: flex; flex-direction: column; gap: 0.85rem">
-          <div>
-            <label class="form-label-m" for="editName">NAMA PORTAL</label>
-            <input id="editName" type="text" class="form-input-m" />
-          </div>
-          <div>
-            <label class="form-label-m" for="editUrl">URL / ALAMAT</label>
-            <input id="editUrl" type="url" class="form-input-m" />
-          </div>
-          <div>
-            <label class="form-label-m" for="editDesc">DESKRIPSI</label>
-            <input id="editDesc" type="text" class="form-input-m" />
-          </div>
-          <div>
-            <label class="form-label-m" for="editCat">KATEGORI</label>
-            <select id="editCat" class="form-input-m">
-              <option value="Umum">Umum</option>
-              <option value="Alat">Alat &amp; Utilitas</option>
-              <option value="Media">Media &amp; Hiburan</option>
-              <option value="Edukasi">Edukasi</option>
-              <option value="Sosial">Sosial &amp; Komunitas</option>
-              <option value="Lainnya">Lainnya</option>
-            </select>
-          </div>
-          <div>
-            <label class="form-label-m" for="editIcon">IKON (emoji)</label>
-            <input
-              id="editIcon"
-              type="text"
-              maxlength="5"
-              class="form-input-m" />
-          </div>
-        </div>
-
-        <div class="modal-actions">
-          <button type="button" onclick="submitEdit()" class="gold-btn">
-            ✦ PERBARUI
-          </button>
-          <button
-            type="button"
-            onclick="closeModal('modalEdit')"
-            class="red-btn">
-            BATAL
-          </button>
-        </div>
-      </div>
-    </div>
+   
 
     <!-- ══════════════════════════════════
        TOP USER BAR
@@ -885,14 +764,6 @@
       <div class="ornament" style="font-size: 1.5rem; margin-top: 0.25rem">
         ⚜ ✦ ⚜
       </div>
-
-      <div class="header-actions">
-        <button type="button" class="gold-btn" id="btnOpenAdd">
-          ✦ Tambah Portal
-        </button>
-        <button type="button" class="blue-btn" id="btnMyLinks">
-          📋 Portal Saya
-        </button>
       </div>
     </header>
 
@@ -931,7 +802,6 @@
     <div id="emptyState">
       <div class="icon">🗺️</div>
       <p class="section-title" style="font-size: 1rem">Belum Ada Portal</p>
-      <p>Klik "Tambah Portal" untuk menambahkan website pertamamu.</p>
     </div>
 
     <!-- ══════════════════════════════════
