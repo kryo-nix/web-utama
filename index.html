@@ -1002,8 +1002,6 @@
           ${
             isOwner
               ? `
-            <button type="button" class="card-edit"  data-id="${id}">✏</button>
-            <button type="button" class="card-delete" data-id="${id}">🗑</button>
           `
               : ""
           }
@@ -1012,18 +1010,6 @@
 
           /* Pasang event listener via data-id — bukan onclick inline
          agar terhindar dari bug XSS & closure stale reference     */
-          if (isOwner) {
-            card
-              .querySelector(".card-edit")
-              .addEventListener("click", () => openEdit(id));
-            card
-              .querySelector(".card-delete")
-              .addEventListener("click", () => deleteLink(id));
-          }
-
-          grid.appendChild(card);
-        });
-      }
 
       /* ════════════════════════════════════════════════
      TAMBAH PORTAL
