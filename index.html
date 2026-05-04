@@ -8,7 +8,13 @@
     <style>
       @import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
 
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
       body {
         font-family: "Libre Baskerville", Georgia, serif;
@@ -18,13 +24,33 @@
         color: #9e38e7;
       }
 
-      .section-title { font-family: "Cinzel", serif; color: #c9a84c; letter-spacing: 0.15em; text-shadow: 0 0 10px rgba(201,168,76,0.4); }
+      .section-title {
+        font-family: "Cinzel", serif;
+        color: #c9a84c;
+        letter-spacing: 0.15em;
+        text-shadow: 0 0 10px rgba(201, 168, 76, 0.4);
+      }
       .ornament { color: #c9a84c; }
 
-      .divider { border: none; border-top: 1px solid #4a3510; position: relative; margin: 0.75rem 0; }
-      .divider::after { content: "✦"; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #1a1209; padding: 0 0.5rem; color: #4a3510; font-size: 0.6rem; }
+      .divider {
+        border: none;
+        border-top: 1px solid #4a3510;
+        position: relative;
+        margin: 0.75rem 0;
+      }
+      .divider::after {
+        content: "✦";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #1a1209;
+        padding: 0 0.5rem;
+        color: #4a3510;
+        font-size: 0.6rem;
+      }
 
-      /* USER BAR */
+      /* ── USER BAR ── */
       #userBar {
         background: linear-gradient(90deg, #0d0905, #1a1209, #0d0905);
         border-bottom: 1px solid #2e1f08;
@@ -35,40 +61,52 @@
         flex-wrap: wrap;
         gap: 0.5rem;
       }
-      #userBar .brand { font-family: "Cinzel", serif; font-size: 0.7rem; letter-spacing: 0.2em; color: #4a3510; }
-      #userBar .user-info { display: flex; align-items: center; gap: 0.75rem; }
-      #userEmailDisplay { font-size: 0.75rem; color: #8b6914; font-style: italic; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      #userBar .brand {
+        font-family: "Cinzel", serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        color: #4a3510;
+      }
+      #userBar .user-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      #userEmailDisplay {
+        font-size: 0.75rem;
+        color: #8b6914;
+        font-style: italic;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
 
-      /* HEADER */
+      /* ── HEADER ── */
       #mainHeader {
         background: linear-gradient(180deg, #0d0905 0%, #1a1209 40%, #221809 100%);
         border-bottom: 3px double #4a3510;
         padding: 2.5rem 1rem 2rem;
         text-align: center;
       }
-      #mainHeader h1 { font-family: "Cinzel", serif; font-size: clamp(2rem,6vw,3.25rem); font-weight: 700; color: #c9a84c; text-shadow: 0 0 30px rgba(201,168,76,0.5), 2px 2px 6px #000; letter-spacing: 0.1em; margin: 0.25rem 0; }
-      #mainHeader .subtitle { font-family: "IM Fell English", serif; font-size: 0.875rem; font-style: italic; color: #4a3510; margin-top: 0.25rem; }
-
-      /* BUTTONS */
-      .gold-btn {
-        display: inline-block;
-        padding: 0.55rem 1.25rem;
-        background: linear-gradient(180deg, #c9a84c 0%, #8b6914 50%, #c9a84c 100%);
-        color: #1a1209;
+      #mainHeader h1 {
         font-family: "Cinzel", serif;
+        font-size: clamp(2rem, 6vw, 3.25rem);
         font-weight: 700;
-        font-size: 0.8rem;
-        letter-spacing: 0.07em;
-        border: 1px solid #ffd700;
-        border-radius: 3px;
-        cursor: pointer;
-        text-decoration: none;
-        text-align: center;
-        transition: all 0.25s ease;
-        line-height: 1.5;
+        color: #c9a84c;
+        text-shadow: 0 0 30px rgba(201, 168, 76, 0.5), 2px 2px 6px #000;
+        letter-spacing: 0.1em;
+        margin: 0.25rem 0;
       }
-      .gold-btn:hover { background: linear-gradient(180deg, #ffd700 0%, #c9a84c 50%, #ffd700 100%); box-shadow: 0 0 12px rgba(255,215,0,0.4); }
+      #mainHeader .subtitle {
+        font-family: "IM Fell English", serif;
+        font-size: 0.875rem;
+        font-style: italic;
+        color: #4a3510;
+        margin-top: 0.25rem;
+      }
 
+      /* ── BUTTONS ── */
       .red-btn {
         display: inline-block;
         padding: 0.45rem 1rem;
@@ -86,30 +124,18 @@
         transition: all 0.25s ease;
         line-height: 1.5;
       }
-      .red-btn:hover { background: linear-gradient(180deg, #c0392b 0%, #8b1a1a 50%, #c0392b 100%); box-shadow: 0 0 10px rgba(192,57,43,0.4); }
-
-      .blue-btn {
-        display: inline-block;
-        padding: 0.55rem 1.25rem;
-        background: linear-gradient(180deg, #1a3a5c 0%, #0d2035 50%, #1a3a5c 100%);
-        color: #90caf9;
-        font-family: "Cinzel", serif;
-        font-weight: 700;
-        font-size: 0.8rem;
-        letter-spacing: 0.07em;
-        border: 1px solid #1e5a7a;
-        border-radius: 3px;
-        cursor: pointer;
-        text-decoration: none;
-        text-align: center;
-        transition: all 0.25s ease;
-        line-height: 1.5;
+      .red-btn:hover {
+        background: linear-gradient(180deg, #c0392b 0%, #8b1a1a 50%, #c0392b 100%);
+        box-shadow: 0 0 10px rgba(192, 57, 43, 0.4);
       }
-      .blue-btn:hover { background: linear-gradient(180deg, #1e5a7a 0%, #1a3a5c 50%, #1e5a7a 100%); box-shadow: 0 0 10px rgba(30,90,122,0.4); }
-      .blue-btn.active-mine { background: linear-gradient(180deg, #4a3510 0%, #2a1f0e 50%, #4a3510 100%); border-color: #8b6914; color: #e8d5a3; }
 
-      /* SEARCH */
-      #searchWrap { max-width: 560px; margin: 1.5rem auto 1rem; padding: 0 1rem; position: relative; }
+      /* ── SEARCH ── */
+      #searchWrap {
+        max-width: 560px;
+        margin: 1.5rem auto 1rem;
+        padding: 0 1rem;
+        position: relative;
+      }
       #searchInput {
         background: #0d0905;
         border: 1px solid #4a3510;
@@ -121,21 +147,65 @@
         border-radius: 99px;
         transition: border-color 0.2s, box-shadow 0.2s;
       }
-      #searchInput:focus { outline: none; border-color: #8b6914; box-shadow: 0 0 8px rgba(139,105,20,0.3); }
+      #searchInput:focus {
+        outline: none;
+        border-color: #8b6914;
+        box-shadow: 0 0 8px rgba(139, 105, 20, 0.3);
+      }
       #searchInput::placeholder { color: #4a3510; }
-      .search-icon { position: absolute; right: 1.75rem; top: 50%; transform: translateY(-50%); color: #4a3510; font-size: 0.9rem; pointer-events: none; }
+      .search-icon {
+        position: absolute;
+        right: 1.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #4a3510;
+        font-size: 0.9rem;
+        pointer-events: none;
+      }
 
-      /* CATEGORY FILTER */
-      #catFilter { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; padding: 0.5rem 1rem 1rem; }
-      .cat-pill { padding: 0.3rem 0.9rem; border-radius: 99px; font-family: "Cinzel", serif; font-size: 0.65rem; letter-spacing: 0.1em; cursor: pointer; border: 1px solid #2e1f08; background: #1a1209; color: #4a3510; transition: all 0.2s; }
+      /* ── CATEGORY FILTER ── */
+      #catFilter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem 1rem;
+      }
+      .cat-pill {
+        padding: 0.3rem 0.9rem;
+        border-radius: 99px;
+        font-family: "Cinzel", serif;
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        border: 1px solid #2e1f08;
+        background: #1a1209;
+        color: #4a3510;
+        transition: all 0.2s;
+      }
       .cat-pill:hover { border-color: #8b6914; color: #8b6914; }
       .cat-pill.active { background: #4a3510; border-color: #8b6914; color: #e8d5a3; }
 
-      /* VIEW LABEL */
-      #viewLabel { text-align: center; font-family: "Cinzel", serif; font-size: 0.75rem; letter-spacing: 0.2em; color: #4a3510; margin-bottom: 1rem; padding: 0 1rem; }
+      /* ── VIEW LABEL ── */
+      #viewLabel {
+        text-align: center;
+        font-family: "Cinzel", serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        color: #4a3510;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
+      }
 
-      /* CARDS GRID */
-      #cardsGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; padding: 0 1rem 2rem; max-width: 1280px; margin: 0 auto; }
+      /* ── CARDS GRID ── */
+      #cardsGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 1rem;
+        padding: 0 1rem 2rem;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
 
       .portal-card {
         background: linear-gradient(135deg, #2a1f0e 0%, #1a1209 60%, #221809 100%);
@@ -149,16 +219,63 @@
         overflow: hidden;
         transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
       }
-      .portal-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, #4a3510, transparent); transition: background 0.25s; }
-      .portal-card:hover { transform: translateY(-3px); border-color: #8b6914; box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 12px rgba(139,105,20,0.2); }
-      .portal-card:hover::before { background: linear-gradient(90deg, transparent, #c9a84c, transparent); }
+      .portal-card::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #4a3510, transparent);
+        transition: background 0.25s;
+      }
+      .portal-card:hover {
+        transform: translateY(-3px);
+        border-color: #8b6914;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.5), 0 0 12px rgba(139,105,20,0.2);
+      }
+      .portal-card:hover::before {
+        background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      }
 
       .card-icon { font-size: 2.25rem; line-height: 1; }
-      .card-name { font-family: "Cinzel", serif; font-size: 0.85rem; color: #c9a84c; letter-spacing: 0.05em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-      .card-url { font-size: 0.7rem; color: #4a3510; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-      .card-desc { font-size: 0.75rem; color: #6b4f1e; font-style: italic; line-height: 1.4; }
-      .card-cat { display: inline-block; padding: 0.15rem 0.5rem; font-family: "Cinzel", serif; font-size: 0.6rem; letter-spacing: 0.08em; color: #4a3510; border: 1px solid #2e1f08; border-radius: 99px; background: #0d0905; }
-      .card-owner { font-size: 0.65rem; color: #3d2b0a; font-style: italic; text-align: right; }
+      .card-name {
+        font-family: "Cinzel", serif;
+        font-size: 0.85rem;
+        color: #c9a84c;
+        letter-spacing: 0.05em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .card-url {
+        font-size: 0.7rem;
+        color: #4a3510;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .card-desc {
+        font-size: 0.75rem;
+        color: #6b4f1e;
+        font-style: italic;
+        line-height: 1.4;
+      }
+      .card-cat {
+        display: inline-block;
+        padding: 0.15rem 0.5rem;
+        font-family: "Cinzel", serif;
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+        color: #4a3510;
+        border: 1px solid #2e1f08;
+        border-radius: 99px;
+        background: #0d0905;
+      }
+      .card-owner {
+        font-size: 0.65rem;
+        color: #3d2b0a;
+        font-style: italic;
+        text-align: right;
+      }
       .card-visit {
         display: block;
         padding: 0.45rem 0.5rem;
@@ -176,26 +293,67 @@
         transition: all 0.2s;
         margin-top: 0.25rem;
       }
-      .card-visit:hover { background: linear-gradient(180deg, #ffd700 0%, #c9a84c 50%, #ffd700 100%); }
+      .card-visit:hover {
+        background: linear-gradient(180deg, #ffd700 0%, #c9a84c 50%, #ffd700 100%);
+      }
 
-      /* EMPTY STATE */
-      #emptyState { display: none; text-align: center; padding: 4rem 1rem; }
+      /* ── EMPTY STATE ── */
+      #emptyState {
+        display: none;
+        text-align: center;
+        padding: 4rem 1rem;
+      }
       #emptyState .icon { font-size: 4rem; margin-bottom: 1rem; }
-      #emptyState p { font-size: 0.875rem; color: #4a3510; font-style: italic; margin-top: 0.5rem; }
+      #emptyState p {
+        font-size: 0.875rem;
+        color: #4a3510;
+        font-style: italic;
+        margin-top: 0.5rem;
+      }
 
-      /* LOADING SCREEN */
-      #loadingScreen { position: fixed; inset: 0; background: #0d0905; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; transition: opacity 0.4s; }
+      /* ── LOADING ── */
+      #loadingScreen {
+        position: fixed;
+        inset: 0;
+        background: #0d0905;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        transition: opacity 0.4s;
+      }
       #loadingScreen.fade-out { opacity: 0; pointer-events: none; }
-      .spinner { width: 48px; height: 48px; border: 4px solid #2e1f08; border-top-color: #c9a84c; border-radius: 50%; animation: spin 0.75s linear infinite; }
+      .spinner {
+        width: 48px; height: 48px;
+        border: 4px solid #2e1f08;
+        border-top-color: #c9a84c;
+        border-radius: 50%;
+        animation: spin 0.75s linear infinite;
+      }
       @keyframes spin { to { transform: rotate(360deg); } }
 
-      /* TOAST */
-      #toast { position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 9000; padding: 0.75rem 1.25rem; border-radius: 4px; font-size: 0.825rem; font-family: "Libre Baskerville", serif; max-width: 320px; transform: translateX(150%); transition: transform 0.3s ease; line-height: 1.4; }
+      /* ── TOAST ── */
+      #toast {
+        position: fixed;
+        bottom: 1.5rem; right: 1.5rem;
+        z-index: 9000;
+        padding: 0.75rem 1.25rem;
+        border-radius: 4px;
+        font-size: 0.825rem;
+        font-family: "Libre Baskerville", serif;
+        max-width: 320px;
+        transform: translateX(150%);
+        transition: transform 0.3s ease;
+        line-height: 1.4;
+      }
       #toast.show { transform: translateX(0); }
       #toast.t-success { background: #1a3a1a; border: 1px solid #2e7d32; color: #a5d6a7; }
-      #toast.t-error { background: #3a1a1a; border: 1px solid #c62828; color: #ef9a9a; }
-      #toast.t-info { background: #1a2a3a; border: 1px solid #1565c0; color: #90caf9; }
+      #toast.t-error   { background: #3a1a1a; border: 1px solid #c62828; color: #ef9a9a; }
+      #toast.t-info    { background: #1a2a3a; border: 1px solid #1565c0; color: #90caf9; }
 
+      /* ── SCROLLBAR ── */
       ::-webkit-scrollbar { width: 7px; }
       ::-webkit-scrollbar-track { background: #0d0905; }
       ::-webkit-scrollbar-thumb { background: #2e1f08; border-radius: 99px; }
@@ -268,10 +426,10 @@
     </footer>
 
     <script type="module">
-      import { initializeApp }        from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
-      import { getAnalytics }         from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
+      import { initializeApp }                        from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+      import { getAnalytics }                         from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
       import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
-      import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
+      import { getDatabase, ref, onValue }            from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
 
       /* ── Firebase Init ── */
       const firebaseConfig = {
@@ -290,9 +448,9 @@
       const db   = getDatabase(fbApp);
 
       /* ── State ── */
-      let currentUser  = null;
-      let allLinks     = {};
-      let activeCat    = "all";
+      let currentUser   = null;
+      let allLinks      = {};
+      let activeCat     = "all";
       let dbUnsubscribe = null;
 
       /* ── Loading ── */
@@ -319,7 +477,7 @@
         startDBListener();
       });
 
-      /* ── Realtime DB ── */
+      /* ── Realtime DB Listener ── */
       function startDBListener() {
         if (dbUnsubscribe) dbUnsubscribe();
         const linksRef = ref(db, "links");
@@ -350,7 +508,6 @@
           return matchCat && matchSearch;
         });
 
-        /* Newest first */
         entries.sort((a, b) => (b[1].createdAt ?? 0) - (a[1].createdAt ?? 0));
 
         if (entries.length === 0) {
@@ -363,15 +520,15 @@
           const card = document.createElement("div");
           card.className = "portal-card";
 
-          const name  = esc(lnk.name     ?? "");
+          const name   = esc(lnk.name     ?? "");
           const rawUrl = lnk.url ?? "#";
-          const url   = esc(rawUrl);
-          const desc  = esc(lnk.desc     ?? "");
-          const cat   = esc(lnk.category ?? "Umum");
-          const icon  = esc(lnk.icon     ?? "🌐");
-          const owner = esc((lnk.ownerEmail ?? "").split("@")[0] ?? "—");
+          const url    = esc(rawUrl);
+          const desc   = esc(lnk.desc     ?? "");
+          const cat    = esc(lnk.category ?? "Umum");
+          const icon   = esc(lnk.icon     ?? "🌐");
+          const owner  = esc((lnk.ownerEmail ?? "").split("@")[0] ?? "—");
 
-          /* Validasi URL — cegah javascript: dan skema berbahaya */
+          /* Cegah javascript: XSS */
           const safeUrl = /^https?:\/\//i.test(rawUrl) ? rawUrl : "#";
 
           card.innerHTML = `
