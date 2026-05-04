@@ -21,7 +21,7 @@
         background-color: #1a1209;
         background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
         min-height: 100vh;
-        color: #e8d5a3;
+        color: #9e38e7;
       }
 
       /* ════════════════════════
@@ -35,6 +35,68 @@
       }
       .ornament {
         color: #c9a84c;
+      }
+
+      /* ════════════════════════
+       LAYOUT PRIMITIVES
+    ════════════════════════ */
+      .divider {
+        border: none;
+        border-top: 1px solid #4a3510;
+        position: relative;
+        margin: 0.75rem 0;
+      }
+      .divider::after {
+        content: "✦";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #1a1209;
+        padding: 0 0.5rem;
+        color: #4a3510;
+        font-size: 0.6rem;
+      }
+      .divider-gold {
+        border-color: #8b6914;
+      }
+      .divider-gold::after {
+        color: #8b6914;
+        background: #0d0905;
+      }
+
+      /* ════════════════════════
+       TOP USER BAR
+    ════════════════════════ */
+      #userBar {
+        background: linear-gradient(90deg, #0d0905, #1a1209, #0d0905);
+        border-bottom: 1px solid #2e1f08;
+        padding: 0.5rem 1.25rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      #userBar .brand {
+        font-family: "Cinzel", serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.2em;
+        color: #4a3510;
+      }
+      #userBar .user-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+      #userEmailDisplay {
+        font-size: 0.75rem;
+        color: #8b6914;
+        font-style: italic;
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       /* ════════════════════════
@@ -68,6 +130,126 @@
         font-style: italic;
         color: #4a3510;
         margin-top: 0.25rem;
+      }
+      .header-actions {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+      }
+
+      /* ════════════════════════
+       BUTTONS
+    ════════════════════════ */
+      .gold-btn {
+        display: inline-block;
+        padding: 0.55rem 1.25rem;
+        background: linear-gradient(
+          180deg,
+          #c9a84c 0%,
+          #8b6914 50%,
+          #c9a84c 100%
+        );
+        color: #1a1209;
+        font-family: "Cinzel", serif;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.07em;
+        border: 1px solid #ffd700;
+        border-radius: 3px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.25s ease;
+        line-height: 1.5;
+      }
+      .gold-btn:hover:not(:disabled) {
+        background: linear-gradient(
+          180deg,
+          #ffd700 0%,
+          #c9a84c 50%,
+          #ffd700 100%
+        );
+        box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+      }
+      .gold-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .red-btn {
+        display: inline-block;
+        padding: 0.45rem 1rem;
+        background: linear-gradient(
+          180deg,
+          #8b1a1a 0%,
+          #5a0f0f 50%,
+          #8b1a1a 100%
+        );
+        color: #e8d5a3;
+        font-family: "Cinzel", serif;
+        font-weight: 700;
+        font-size: 0.75rem;
+        letter-spacing: 0.07em;
+        border: 1px solid #c0392b;
+        border-radius: 3px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.25s ease;
+        line-height: 1.5;
+      }
+      .red-btn:hover {
+        background: linear-gradient(
+          180deg,
+          #c0392b 0%,
+          #8b1a1a 50%,
+          #c0392b 100%
+        );
+        box-shadow: 0 0 10px rgba(192, 57, 43, 0.4);
+      }
+
+      .blue-btn {
+        display: inline-block;
+        padding: 0.55rem 1.25rem;
+        background: linear-gradient(
+          180deg,
+          #1a3a5c 0%,
+          #0d2035 50%,
+          #1a3a5c 100%
+        );
+        color: #90caf9;
+        font-family: "Cinzel", serif;
+        font-weight: 700;
+        font-size: 0.8rem;
+        letter-spacing: 0.07em;
+        border: 1px solid #1e5a7a;
+        border-radius: 3px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        transition: all 0.25s ease;
+        line-height: 1.5;
+      }
+      .blue-btn:hover {
+        background: linear-gradient(
+          180deg,
+          #1e5a7a 0%,
+          #1a3a5c 50%,
+          #1e5a7a 100%
+        );
+        box-shadow: 0 0 10px rgba(30, 90, 122, 0.4);
+      }
+      .blue-btn.active-mine {
+        background: linear-gradient(
+          180deg,
+          #4a3510 0%,
+          #2a1f0e 50%,
+          #4a3510 100%
+        );
+        border-color: #8b6914;
+        color: #e8d5a3;
       }
 
       /* ════════════════════════
@@ -137,6 +319,19 @@
         background: #4a3510;
         border-color: #8b6914;
         color: #e8d5a3;
+      }
+
+      /* ════════════════════════
+       VIEW LABEL
+    ════════════════════════ */
+      #viewLabel {
+        text-align: center;
+        font-family: "Cinzel", serif;
+        font-size: 0.75rem;
+        letter-spacing: 0.2em;
+        color: #4a3510;
+        margin-bottom: 1rem;
+        padding: 0 1rem;
       }
 
       /* ════════════════════════
@@ -235,9 +430,14 @@
         font-style: italic;
         text-align: right;
       }
+      .card-actions {
+        display: flex;
+        gap: 0.4rem;
+        margin-top: 0.25rem;
+      }
       .card-visit {
-        display: block;
-        padding: 0.55rem 0.5rem;
+        flex: 1;
+        padding: 0.45rem 0.5rem;
         background: linear-gradient(
           180deg,
           #c9a84c 0%,
@@ -255,6 +455,7 @@
         text-decoration: none;
         text-align: center;
         transition: all 0.2s;
+        display: block;
       }
       .card-visit:hover {
         background: linear-gradient(
@@ -263,6 +464,32 @@
           #c9a84c 50%,
           #ffd700 100%
         );
+      }
+      .card-edit {
+        padding: 0.45rem 0.55rem;
+        font-size: 0.75rem;
+        background: #1a2e1a;
+        border: 1px solid #2e5c2e;
+        color: #81c784;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .card-edit:hover {
+        background: #2e5c2e;
+      }
+      .card-delete {
+        padding: 0.45rem 0.55rem;
+        font-size: 0.75rem;
+        background: #3a1a1a;
+        border: 1px solid #7b2020;
+        color: #ef9a9a;
+        border-radius: 3px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .card-delete:hover {
+        background: #7b2020;
       }
 
       /* ════════════════════════
@@ -282,6 +509,121 @@
         color: #4a3510;
         font-style: italic;
         margin-top: 0.5rem;
+      }
+
+      /* ════════════════════════
+       MODALS
+    ════════════════════════ */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.82);
+        z-index: 500;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+
+      .modal-box {
+        background: linear-gradient(
+          160deg,
+          #2a1f0e 0%,
+          #1a1209 60%,
+          #2a1f0e 100%
+        );
+        border: 2px solid #8b6914;
+        box-shadow:
+          0 0 0 4px #0d0905,
+          0 0 0 6px #4a3510,
+          0 0 40px rgba(139, 105, 20, 0.5);
+        border-radius: 4px;
+        padding: 2rem;
+        width: 100%;
+        max-width: 460px;
+        position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .modal-box::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      }
+
+      .modal-title {
+        font-family: "Cinzel", serif;
+        color: #c9a84c;
+        font-size: 1.1rem;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.25rem;
+      }
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: none;
+        border: none;
+        color: #4a3510;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+      .modal-close:hover {
+        color: #c9a84c;
+      }
+
+      .form-label-m {
+        font-family: "Cinzel", serif;
+        font-size: 0.65rem;
+        letter-spacing: 0.1em;
+        color: #8b6914;
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .form-input-m {
+        background: #0d0905;
+        border: 1px solid #2e1f08;
+        color: #e8d5a3;
+        font-family: "Libre Baskerville", serif;
+        font-size: 0.825rem;
+        width: 100%;
+        padding: 0.55rem 0.85rem;
+        border-radius: 3px;
+        transition: border-color 0.2s;
+      }
+      .form-input-m:focus {
+        outline: none;
+        border-color: #8b6914;
+        box-shadow: 0 0 6px rgba(139, 105, 20, 0.2);
+      }
+      .form-input-m::placeholder {
+        color: #2e1f08;
+      }
+      select.form-input-m option {
+        background: #1a1209;
+      }
+
+      .modal-actions {
+        display: flex;
+        gap: 0.6rem;
+        margin-top: 1.25rem;
+      }
+      .modal-actions .gold-btn {
+        flex: 1;
+        padding: 0.6rem;
+        font-size: 0.8rem;
+      }
+      .modal-actions .red-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
       }
 
       /* ════════════════════════
@@ -319,6 +661,42 @@
       }
 
       /* ════════════════════════
+       TOAST NOTIFICATION
+    ════════════════════════ */
+      #toast {
+        position: fixed;
+        bottom: 1.5rem;
+        right: 1.5rem;
+        z-index: 9000;
+        padding: 0.75rem 1.25rem;
+        border-radius: 4px;
+        font-size: 0.825rem;
+        font-family: "Libre Baskerville", serif;
+        max-width: 320px;
+        transform: translateX(150%);
+        transition: transform 0.3s ease;
+        line-height: 1.4;
+      }
+      #toast.show {
+        transform: translateX(0);
+      }
+      #toast.t-success {
+        background: #1a3a1a;
+        border: 1px solid #2e7d32;
+        color: #a5d6a7;
+      }
+      #toast.t-error {
+        background: #3a1a1a;
+        border: 1px solid #c62828;
+        color: #ef9a9a;
+      }
+      #toast.t-info {
+        background: #1a2a3a;
+        border: 1px solid #1565c0;
+        color: #90caf9;
+      }
+
+      /* ════════════════════════
        SCROLLBAR
     ════════════════════════ */
       ::-webkit-scrollbar {
@@ -350,6 +728,152 @@
     </div>
 
     <!-- ══════════════════════════════════
+       TOAST
+  ══════════════════════════════════ -->
+    <div id="toast"></div>
+
+    <!-- ══════════════════════════════════
+       MODAL — TAMBAH PORTAL
+  ══════════════════════════════════ -->
+    <div id="modalAdd" class="modal-overlay" role="dialog" aria-modal="true">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('modalAdd')">✕</button>
+        <p class="modal-title">✦ Tambah Portal Baru</p>
+        <hr class="divider divider-gold" style="margin-bottom: 1rem" />
+
+        <div style="display: flex; flex-direction: column; gap: 0.85rem">
+          <div>
+            <label class="form-label-m" for="addName">NAMA PORTAL</label>
+            <input
+              id="addName"
+              type="text"
+              placeholder="Contoh: Google Search"
+              class="form-input-m" />
+          </div>
+          <div>
+            <label class="form-label-m" for="addUrl">URL / ALAMAT</label>
+            <input
+              id="addUrl"
+              type="url"
+              placeholder="https://www.example.com"
+              class="form-input-m" />
+          </div>
+          <div>
+            <label class="form-label-m" for="addDesc"
+              >DESKRIPSI (opsional)</label
+            >
+            <input
+              id="addDesc"
+              type="text"
+              placeholder="Keterangan singkat..."
+              class="form-input-m" />
+          </div>
+          <div>
+            <label class="form-label-m" for="addCat">KATEGORI</label>
+            <select id="addCat" class="form-input-m">
+              <option value="Umum">Umum</option>
+              <option value="Alat">Alat &amp; Utilitas</option>
+              <option value="Media">Media &amp; Hiburan</option>
+              <option value="Edukasi">Edukasi</option>
+              <option value="Sosial">Sosial &amp; Komunitas</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label-m" for="addIcon">IKON (emoji)</label>
+            <input
+              id="addIcon"
+              type="text"
+              placeholder="🌐"
+              maxlength="5"
+              class="form-input-m" />
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" onclick="submitAdd()" class="gold-btn">
+            ✦ SIMPAN PORTAL
+          </button>
+          <button
+            type="button"
+            onclick="closeModal('modalAdd')"
+            class="red-btn">
+            BATAL
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+       MODAL — EDIT PORTAL
+  ══════════════════════════════════ -->
+    <div id="modalEdit" class="modal-overlay" role="dialog" aria-modal="true">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('modalEdit')">✕</button>
+        <p class="modal-title">✦ Edit Portal</p>
+        <hr class="divider divider-gold" style="margin-bottom: 1rem" />
+        <input type="hidden" id="editId" />
+
+        <div style="display: flex; flex-direction: column; gap: 0.85rem">
+          <div>
+            <label class="form-label-m" for="editName">NAMA PORTAL</label>
+            <input id="editName" type="text" class="form-input-m" />
+          </div>
+          <div>
+            <label class="form-label-m" for="editUrl">URL / ALAMAT</label>
+            <input id="editUrl" type="url" class="form-input-m" />
+          </div>
+          <div>
+            <label class="form-label-m" for="editDesc">DESKRIPSI</label>
+            <input id="editDesc" type="text" class="form-input-m" />
+          </div>
+          <div>
+            <label class="form-label-m" for="editCat">KATEGORI</label>
+            <select id="editCat" class="form-input-m">
+              <option value="Umum">Umum</option>
+              <option value="Alat">Alat &amp; Utilitas</option>
+              <option value="Media">Media &amp; Hiburan</option>
+              <option value="Edukasi">Edukasi</option>
+              <option value="Sosial">Sosial &amp; Komunitas</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label-m" for="editIcon">IKON (emoji)</label>
+            <input
+              id="editIcon"
+              type="text"
+              maxlength="5"
+              class="form-input-m" />
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="button" onclick="submitEdit()" class="gold-btn">
+            ✦ PERBARUI
+          </button>
+          <button
+            type="button"
+            onclick="closeModal('modalEdit')"
+            class="red-btn">
+            BATAL
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
+       TOP USER BAR
+  ══════════════════════════════════ -->
+    <div id="userBar">
+      <span class="brand">✦ PORTAL HUB ✦</span>
+      <div class="user-info">
+        <span id="userEmailDisplay"></span>
+        <button type="button" class="red-btn" id="btnLogout">KELUAR</button>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════
        HEADER
   ══════════════════════════════════ -->
     <header id="mainHeader">
@@ -360,6 +884,15 @@
       <p class="subtitle">— Gerbang Menuju Berbagai Penjuru Dunia Maya —</p>
       <div class="ornament" style="font-size: 1.5rem; margin-top: 0.25rem">
         ⚜ ✦ ⚜
+      </div>
+
+      <div class="header-actions">
+        <button type="button" class="gold-btn" id="btnOpenAdd">
+          ✦ Tambah Portal
+        </button>
+        <button type="button" class="blue-btn" id="btnMyLinks">
+          📋 Portal Saya
+        </button>
       </div>
     </header>
 
@@ -386,6 +919,9 @@
       <button type="button" class="cat-pill" data-cat="Lainnya">LAINNYA</button>
     </div>
 
+    <!-- View label -->
+    <div id="viewLabel">✦ SEMUA PORTAL ✦</div>
+
     <!-- ══════════════════════════════════
        CARDS GRID
   ══════════════════════════════════ -->
@@ -395,7 +931,7 @@
     <div id="emptyState">
       <div class="icon">🗺️</div>
       <p class="section-title" style="font-size: 1rem">Belum Ada Portal</p>
-      <p>Belum ada portal yang tersedia saat ini.</p>
+      <p>Klik "Tambah Portal" untuk menambahkan website pertamamu.</p>
     </div>
 
     <!-- ══════════════════════════════════
@@ -413,7 +949,7 @@
       </div>
       <p
         style="
-          font-family: 'Cinzel', serif;
+          font-family: &quot;Cinzel&quot;, serif;
           font-size: 0.7rem;
           letter-spacing: 0.2em;
           color: #2e1f08;
@@ -422,7 +958,7 @@
       </p>
       <p
         style="
-          font-family: 'IM Fell English', serif;
+          font-family: &quot;IM Fell English&quot;, serif;
           font-size: 0.75rem;
           font-style: italic;
           color: #2e1f08;
@@ -439,8 +975,17 @@
       import {initializeApp} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
       import {getAnalytics} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
       import {
+        getAuth,
+        onAuthStateChanged,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+      import {
         getDatabase,
         ref,
+        push,
+        set,
+        update,
+        remove,
         onValue,
       } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-database.js";
 
@@ -458,16 +1003,20 @@
       };
       const fbApp = initializeApp(firebaseConfig);
       getAnalytics(fbApp);
+      const auth = getAuth(fbApp);
       const db = getDatabase(fbApp);
 
       /* ════════════════════════════════════════════════
      STATE
   ════════════════════════════════════════════════ */
+      let currentUser = null;
       let allLinks = {}; // { id: linkObj }
       let activeCat = "all";
+      let showMine = false;
+      let dbUnsubscribe = null; // cleanup listener saat logout
 
       /* ════════════════════════════════════════════════
-     LOADING SCREEN
+     LOADING SCREEN — hilang setelah auth check
   ════════════════════════════════════════════════ */
       function hideLoading() {
         const ls = document.getElementById("loadingScreen");
@@ -476,21 +1025,47 @@
       }
 
       /* ════════════════════════════════════════════════
+     AUTH GUARD
+     - Belum login → login.html
+     - Login tapi email belum verify → logout → login.html?verify=1
+     - OK → tampilkan halaman
+  ════════════════════════════════════════════════ */
+      onAuthStateChanged(auth, async (user) => {
+        if (!user) {
+          window.location.replace("login.html");
+          return;
+        }
+        if (!user.emailVerified) {
+          await signOut(auth);
+          window.location.replace("login.html?verify=1");
+          return;
+        }
+
+        /* User valid */
+        currentUser = user;
+        document.getElementById("userEmailDisplay").textContent = user.email;
+        hideLoading();
+        startDBListener();
+      });
+
+      /* ════════════════════════════════════════════════
      REALTIME DATABASE LISTENER
   ════════════════════════════════════════════════ */
-      const linksRef = ref(db, "links");
-      onValue(
-        linksRef,
-        (snapshot) => {
-          allLinks = snapshot.val() ?? {};
-          hideLoading();
-          renderCards();
-        },
-        (err) => {
-          hideLoading();
-          console.error("Gagal memuat data:", err);
-        },
-      );
+      function startDBListener() {
+        if (dbUnsubscribe) dbUnsubscribe(); // bersihkan listener lama jika ada
+        const linksRef = ref(db, "links");
+        // onValue mengembalikan fungsi unsubscribe
+        dbUnsubscribe = onValue(
+          linksRef,
+          (snapshot) => {
+            allLinks = snapshot.val() ?? {};
+            renderCards();
+          },
+          (err) => {
+            toast("Gagal memuat data: " + err.message, "error");
+          },
+        );
+      }
 
       /* ════════════════════════════════════════════════
      RENDER CARDS
@@ -508,12 +1083,13 @@
         /* Filter */
         const entries = Object.entries(allLinks).filter(([, lnk]) => {
           const matchCat = activeCat === "all" || lnk.category === activeCat;
+          const matchMine = !showMine || lnk.owner === currentUser?.uid;
           const matchSearch =
             !search ||
             (lnk.name ?? "").toLowerCase().includes(search) ||
             (lnk.desc ?? "").toLowerCase().includes(search) ||
             (lnk.url ?? "").toLowerCase().includes(search);
-          return matchCat && matchSearch;
+          return matchCat && matchMine && matchSearch;
         });
 
         /* Sort: newest first */
@@ -526,9 +1102,11 @@
         empty.style.display = "none";
 
         entries.forEach(([id, lnk]) => {
+          const isOwner = currentUser && lnk.owner === currentUser.uid;
           const card = document.createElement("div");
           card.className = "portal-card";
 
+          /* Sanitize sebelum inject ke innerHTML */
           const name = esc(lnk.name ?? "");
           const url = esc(lnk.url ?? "#");
           const desc = esc(lnk.desc ?? "");
@@ -537,23 +1115,167 @@
           const owner = esc((lnk.ownerEmail ?? "").split("@")[0] ?? "—");
 
           card.innerHTML = `
-            <div style="display:flex; align-items:flex-start; gap:0.75rem;">
-              <span class="card-icon">${icon}</span>
-              <div style="flex:1; min-width:0;">
-                <div class="card-name">${name}</div>
-                <div class="card-url">${url}</div>
-              </div>
-            </div>
-            ${desc ? `<p class="card-desc">${desc}</p>` : ""}
-            <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
-              <span class="card-cat">${cat}</span>
-              <span class="card-owner">${owner}</span>
-            </div>
-            <a href="${url}" target="_blank" rel="noopener noreferrer" class="card-visit">➜ Kunjungi</a>
-          `;
+        <div style="display:flex; align-items:flex-start; gap:0.75rem;">
+          <span class="card-icon">${icon}</span>
+          <div style="flex:1; min-width:0;">
+            <div class="card-name">${name}</div>
+            <div class="card-url">${url}</div>
+          </div>
+        </div>
+        ${desc ? `<p class="card-desc">${desc}</p>` : ""}
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:0.5rem;">
+          <span class="card-cat">${cat}</span>
+          <span class="card-owner">${owner}</span>
+        </div>
+        <div class="card-actions">
+          <a href="${url}" target="_blank" rel="noopener noreferrer" class="card-visit">➜ Kunjungi</a>
+          ${
+            isOwner
+              ? `
+            <button type="button" class="card-edit"  data-id="${id}">✏</button>
+            <button type="button" class="card-delete" data-id="${id}">🗑</button>
+          `
+              : ""
+          }
+        </div>
+      `;
+
+          /* Pasang event listener via data-id — bukan onclick inline
+         agar terhindar dari bug XSS & closure stale reference     */
+          if (isOwner) {
+            card
+              .querySelector(".card-edit")
+              .addEventListener("click", () => openEdit(id));
+            card
+              .querySelector(".card-delete")
+              .addEventListener("click", () => deleteLink(id));
+          }
 
           grid.appendChild(card);
         });
+      }
+
+      /* ════════════════════════════════════════════════
+     TAMBAH PORTAL
+  ════════════════════════════════════════════════ */
+      window.openModal = (id) => {
+        document.getElementById(id).classList.add("open");
+      };
+      window.closeModal = (id) => {
+        document.getElementById(id).classList.remove("open");
+      };
+
+      document.getElementById("btnOpenAdd").addEventListener("click", () => {
+        /* Reset form */
+        ["addName", "addUrl", "addDesc", "addIcon"].forEach((id) => {
+          document.getElementById(id).value = "";
+        });
+        document.getElementById("addCat").value = "Umum";
+        openModal("modalAdd");
+      });
+
+      window.submitAdd = async () => {
+        const name = document.getElementById("addName").value.trim();
+        const rawUrl = document.getElementById("addUrl").value.trim();
+        const desc = document.getElementById("addDesc").value.trim();
+        const cat = document.getElementById("addCat").value;
+        const icon = document.getElementById("addIcon").value.trim() || "🌐";
+
+        if (!name || !rawUrl) {
+          toast("Nama dan URL wajib diisi!", "error");
+          return;
+        }
+
+        /* Pastikan URL punya protokol */
+        const url = /^https?:\/\//i.test(rawUrl) ? rawUrl : "https://" + rawUrl;
+
+        try {
+          await push(ref(db, "links"), {
+            name,
+            url,
+            desc,
+            category: cat,
+            icon,
+            owner: currentUser.uid,
+            ownerEmail: currentUser.email,
+            createdAt: Date.now(),
+          });
+          toast("Portal berhasil ditambahkan!", "success");
+          closeModal("modalAdd");
+        } catch (err) {
+          toast("Gagal menyimpan: " + err.message, "error");
+        }
+      };
+
+      /* ════════════════════════════════════════════════
+     EDIT PORTAL
+  ════════════════════════════════════════════════ */
+      function openEdit(id) {
+        const lnk = allLinks[id];
+        if (!lnk) return;
+        document.getElementById("editId").value = id;
+        document.getElementById("editName").value = lnk.name ?? "";
+        document.getElementById("editUrl").value = lnk.url ?? "";
+        document.getElementById("editDesc").value = lnk.desc ?? "";
+        document.getElementById("editCat").value = lnk.category ?? "Umum";
+        document.getElementById("editIcon").value = lnk.icon ?? "🌐";
+        openModal("modalEdit");
+      }
+
+      window.submitEdit = async () => {
+        const id = document.getElementById("editId").value;
+        const name = document.getElementById("editName").value.trim();
+        const url = document.getElementById("editUrl").value.trim();
+        const desc = document.getElementById("editDesc").value.trim();
+        const cat = document.getElementById("editCat").value;
+        const icon = document.getElementById("editIcon").value.trim() || "🌐";
+
+        if (!name || !url) {
+          toast("Nama dan URL wajib diisi!", "error");
+          return;
+        }
+        if (!id || !allLinks[id]) {
+          toast("Portal tidak ditemukan.", "error");
+          return;
+        }
+        /* Pastikan hanya pemilik yang bisa edit */
+        if (allLinks[id].owner !== currentUser.uid) {
+          toast("Anda tidak berhak mengedit portal ini.", "error");
+          return;
+        }
+
+        try {
+          await update(ref(db, "links/" + id), {
+            name,
+            url,
+            desc,
+            category: cat,
+            icon,
+          });
+          toast("Portal berhasil diperbarui!", "success");
+          closeModal("modalEdit");
+        } catch (err) {
+          toast("Gagal memperbarui: " + err.message, "error");
+        }
+      };
+
+      /* ════════════════════════════════════════════════
+     HAPUS PORTAL
+  ════════════════════════════════════════════════ */
+      async function deleteLink(id) {
+        if (!allLinks[id]) return;
+        if (allLinks[id].owner !== currentUser.uid) {
+          toast("Anda tidak berhak menghapus portal ini.", "error");
+          return;
+        }
+        if (!confirm('Hapus portal "' + (allLinks[id].name ?? "") + '"?'))
+          return;
+        try {
+          await remove(ref(db, "links/" + id));
+          toast("Portal dihapus.", "info");
+        } catch (err) {
+          toast("Gagal menghapus: " + err.message, "error");
+        }
       }
 
       /* ════════════════════════════════════════════════
@@ -580,8 +1302,56 @@
       });
 
       /* ════════════════════════════════════════════════
+     TOGGLE PORTAL SAYA
+  ════════════════════════════════════════════════ */
+      document.getElementById("btnMyLinks").addEventListener("click", () => {
+        showMine = !showMine;
+        const btn = document.getElementById("btnMyLinks");
+        const label = document.getElementById("viewLabel");
+        if (showMine) {
+          btn.classList.add("active-mine");
+          label.textContent = "✦ PORTAL SAYA ✦";
+        } else {
+          btn.classList.remove("active-mine");
+          label.textContent = "✦ SEMUA PORTAL ✦";
+        }
+        renderCards();
+      });
+
+      /* ════════════════════════════════════════════════
+     LOGOUT
+  ════════════════════════════════════════════════ */
+      document
+        .getElementById("btnLogout")
+        .addEventListener("click", async () => {
+          if (dbUnsubscribe) {
+            dbUnsubscribe();
+            dbUnsubscribe = null;
+          }
+          await signOut(auth);
+          window.location.replace("login.html");
+        });
+
+      /* ════════════════════════════════════════════════
+     TUTUP MODAL KLIK DI LUAR
+  ════════════════════════════════════════════════ */
+      document.querySelectorAll(".modal-overlay").forEach((overlay) => {
+        overlay.addEventListener("click", (e) => {
+          if (e.target === overlay) overlay.classList.remove("open");
+        });
+      });
+
+      /* ════════════════════════════════════════════════
      HELPERS
   ════════════════════════════════════════════════ */
+      let toastTimer;
+      function toast(msg, type = "info") {
+        const el = document.getElementById("toast");
+        el.textContent = msg;
+        el.className = "show t-" + type;
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => el.classList.remove("show"), 3500);
+      }
 
       /* Escape HTML untuk mencegah XSS saat inject ke innerHTML */
       function esc(str) {
