@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portal Hub — Masuk</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Libre Baskerville", Georgia, serif;
+        background-color: #1a1209;
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        min-height: 100vh;
+        color: #d0a3e8;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1rem;
+      }
+
+      .login-card {
+        background: linear-gradient(
+          160deg,
+          #2a1f0e 0%,
+          #1a1209 60%,
+          #2a1f0e 100%
+        );
+        border: 2px solid #6a18a1;
+        box-shadow:
+          0 0 0 4px #0d0905,
+          0 0 0 6px #8135a7,
+          0 0 40px rgba(139, 105, 20, 0.4);
+        width: 100%;
+        max-width: 420px;
+        border-radius: 4px;
+        padding: 2.5rem;
+        position: relative;
+      }
+
+      .login-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #7918a9, transparent);
+      }
+
+      .login-card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+      }
+
+      .section-title {
+        font-family: "Cinzel", serif;
+        color: #c9a84c;
+        letter-spacing: 0.15em;
+        text-shadow: 0 0 10px rgba(201, 168, 76, 0.4);
+      }
+
+      .ornament {
+        color: #c9a84c;
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+
+      .form-input {
+        background: #0d0905;
+        border: 1px solid #4a3510;
+        color: #e8d5a3;
+        font-family: "Libre Baskerville", serif;
+        font-size: 0.875rem;
+        width: 100%;
+        padding: 0.65rem 1rem;
+        border-radius: 4px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #c9a84c;
+        box-shadow: 0 0 8px rgba(201, 168, 76, 0.25);
+      }
+
+      .form-input::placeholder {
+        color: #4a3510;
+      }
+
+      .form-label {
+        font-family: "Cinzel", serif;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        color: #8b6914;
+        display: block;
+        margin-bottom: 0.35rem;
+      }
+
+      .gold-btn {
+        background: linear-gradient(
+          180deg,
+          #c9a84c 0%,
+          #8b6914 50%,
+          #c9a84c 100%
+        );
+        color: #1a1209;
+        font-family: "Cinzel", serif;
+        font-weight: 700;
+        font-size: 0.875rem;
+        letter-spacing: 0.08em;
+        border: 1px solid #ffd700;
+        padding: 0.75rem;
+        width: 100%;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .gold-btn:hover {
+        background: linear-gradient(
+          180deg,
+          #ffd700 0%,
+          #c9a84c 50%,
+          #ffd700 100%
+        );
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+      }
+
+      .gold-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .divider {
+        border: none;
+        border-top: 1px solid #4a3510;
+        position: relative;
+        margin: 1.25rem 0;
+      }
+
+      .divider::after {
+        content: "✦";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #1a1209;
+        padding: 0 0.5rem;
+        color: #4a3510;
+        font-size: 0.65rem;
+      }
+
+      .link-classic {
+        color: #8b6914;
+        text-decoration: none;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        transition: color 0.2s;
+        font-family: "Cinzel", serif;
+      }
+
+      .link-classic:hover {
+        color: #c9a84c;
+        text-decoration: underline;
+      }
+
+      .alert-box {
+        border-radius: 4px;
+        padding: 0.75rem 1rem;
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+        display: none;
+      }
+
+      .alert-error {
+        background: #3a1a1a;
+        border: 1px solid #c62828;
+        color: #ef9a9a;
+      }
+
+      .alert-success {
+        background: #1a3a1a;
+        border: 1px solid #2e7d32;
+        color: #a5d6a7;
+      }
+
+      .alert-info {
+        background: #1a2a3a;
+        border: 1px solid #1565c0;
+        color: #90caf9;
+      }
+
+      /* Forgot password panel */
+      #forgotPanel {
+        display: none;
+      }
+
+      .spinner-inline {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #4a3510;
+        border-top-color: #1a1209;
+        border-radius: 50%;
+        animation: spin 0.8s linear infinite;
+        vertical-align: middle;
+        margin-right: 6px;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .toggle-pw {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #4a3510;
+        font-size: 0.9rem;
+        user-select: none;
+      }
+
+      .toggle-pw:hover {
+        color: #c9a84c;
+      }
+
+      .pw-wrapper {
+        position: relative;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-center mb-6">
+      <div class="ornament mb-1">⚜ ✦ ⚜</div>
+      <h1 class="section-title text-3xl font-bold">PORTAL HUB</h1>
+      <p
+        class="text-xs text-yellow-800 italic mt-1"
+        style="font-family: &quot;IM Fell English&quot;, serif">
+        — Gerbang Menuju Berbagai Penjuru Dunia Maya —
+      </p>
+    </div>
+
+    <div class="login-card">
+      <!-- LOGIN PANEL -->
+      <div id="loginPanel">
+        <h2 class="section-title text-xl text-center mb-1">MASUK</h2>
+        <p
+          class="text-center text-xs text-yellow-800 italic mb-4"
+          style="font-family: &quot;IM Fell English&quot;, serif">
+          Masukkan kredensial Anda untuk memasuki gerbang
+        </p>
+        <hr class="divider" />
+
+        <div id="alertBox" class="alert-box"></div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="form-label">ALAMAT SUREL</label>
+            <input
+              id="email"
+              type="email"
+              placeholder="nama@domain.com"
+              class="form-input"
+              autocomplete="email" />
+          </div>
+          <div>
+            <label class="form-label">KATA SANDI</label>
+            <div class="pw-wrapper">
+              <input
+                id="password"
+                type="password"
+                placeholder="••••••••"
+                class="form-input"
+                autocomplete="current-password"
+                style="padding-right: 2.5rem" />
+              <span class="toggle-pw" onclick="togglePw('password', this)"
+                >👁</span
+              >
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <a
+              href="#"
+              onclick="
+                showForgot();
+                return false;
+              "
+              class="link-classic"
+              >Lupa kata sandi?</a
+            >
+          </div>
+          <button id="loginBtn" onclick="doLogin()" class="gold-btn">
+            ✦ MASUK KE PORTAL
+          </button>
+        </div>
+
+        <hr class="divider" />
+
+        <p class="text-center text-xs text-yellow-800">
+          Belum punya akun?
+          <a href="register.html" class="link-classic ml-1">Daftar di sini</a>
+        </p>
+      </div>
+
+      <!-- FORGOT PASSWORD PANEL -->
+      <div id="forgotPanel">
+        <button
+          onclick="showLogin()"
+          class="text-xs text-yellow-700 hover:text-yellow-500 mb-4 cursor-pointer"
+          style="
+            font-family: &quot;Cinzel&quot;, serif;
+            background: none;
+            border: none;
+          ">
+          ← Kembali ke halaman masuk
+        </button>
+        <h2 class="section-title text-xl text-center mb-1">LUPA SANDI</h2>
+        <p
+          class="text-center text-xs text-yellow-800 italic mb-4"
+          style="font-family: &quot;IM Fell English&quot;, serif">
+          Kode pemulihan akan dikirim ke surel Anda
+        </p>
+        <hr class="divider" />
+
+        <div id="forgotAlert" class="alert-box"></div>
+
+        <div class="space-y-4">
+          <div>
+            <label class="form-label">ALAMAT SUREL TERDAFTAR</label>
+            <input
+              id="forgotEmail"
+              type="email"
+              placeholder="nama@domain.com"
+              class="form-input" />
+          </div>
+          <button id="forgotBtn" onclick="doForgot()" class="gold-btn">
+            ✦ KIRIM TAUTAN PEMULIHAN
+          </button>
+        </div>
+
+        <hr class="divider" />
+        <p
+          class="text-center text-xs text-yellow-800 italic"
+          style="font-family: &quot;IM Fell English&quot;, serif">
+          Periksa kotak masuk dan folder spam Anda
+        </p>
+      </div>
+    </div>
+
+    <p
+      class="text-xs text-yellow-900 mt-6 text-center"
+      style="font-family: &quot;Cinzel&quot;, serif">
+      PORTAL HUB © MCMXXIV
+    </p>
+
+    <script type="module">
+      import {initializeApp} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+      import {getAnalytics} from "https://www.gstatic.com/firebasejs/12.12.1/firebase-analytics.js";
+      import {
+        getAuth,
+        signInWithEmailAndPassword,
+        sendPasswordResetEmail,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyD0wGQUotPa-BbMkM26XMEXuRP9e3w5Ki0",
+        authDomain: "website-7cf1e.firebaseapp.com",
+        projectId: "website-7cf1e",
+        databaseURL:
+          "https://website-7cf1e-default-rtdb.asia-southeast1.firebasedatabase.app",
+        storageBucket: "website-7cf1e.firebasestorage.app",
+        messagingSenderId: "58232236783",
+        appId: "1:58232236783:web:c126504993e70b7b67891a",
+        measurementId: "G-6LLX704LMP",
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth(app);
+
+      // Check if already logged in
+      onAuthStateChanged(auth, (user) => {
+        if (user && user.emailVerified) {
+          window.location.href = "index.html";
+        }
+      });
+
+      // Check for verify param
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("verify") === "1") {
+        showAlert(
+          "alertBox",
+          "alert-info",
+          "📧 Akun Anda belum diverifikasi. Silakan cek surel Anda dan klik tautan verifikasi.",
+        );
+      }
+
+      window.showForgot = () => {
+        document.getElementById("loginPanel").style.display = "none";
+        document.getElementById("forgotPanel").style.display = "block";
+      };
+
+      window.showLogin = () => {
+        document.getElementById("forgotPanel").style.display = "none";
+        document.getElementById("loginPanel").style.display = "block";
+      };
+
+      window.togglePw = (id, el) => {
+        const input = document.getElementById(id);
+        if (input.type === "password") {
+          input.type = "text";
+          el.textContent = "🙈";
+        } else {
+          input.type = "password";
+          el.textContent = "👁";
+        }
+      };
+
+      window.doLogin = async () => {
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const btn = document.getElementById("loginBtn");
+
+        clearAlert("alertBox");
+
+        if (!email || !password) {
+          showAlert(
+            "alertBox",
+            "alert-error",
+            "⚠ Surel dan kata sandi wajib diisi.",
+          );
+          return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-inline"></span> Memverifikasi...';
+
+        try {
+          const cred = await signInWithEmailAndPassword(auth, email, password);
+          if (!cred.user.emailVerified) {
+            await auth.signOut();
+            showAlert(
+              "alertBox",
+              "alert-info",
+              "📧 Surel Anda belum diverifikasi. Silakan cek kotak masuk Anda.",
+            );
+            btn.disabled = false;
+            btn.innerHTML = "✦ MASUK KE PORTAL";
+            return;
+          }
+          window.location.href = "index.html";
+        } catch (e) {
+          btn.disabled = false;
+          btn.innerHTML = "✦ MASUK KE PORTAL";
+          showAlert("alertBox", "alert-error", "✕ " + translateError(e.code));
+        }
+      };
+
+      window.doForgot = async () => {
+        const email = document.getElementById("forgotEmail").value.trim();
+        const btn = document.getElementById("forgotBtn");
+        clearAlert("forgotAlert");
+
+        if (!email) {
+          showAlert(
+            "forgotAlert",
+            "alert-error",
+            "⚠ Masukkan alamat surel Anda.",
+          );
+          return;
+        }
+
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-inline"></span> Mengirim...';
+
+        try {
+          await sendPasswordResetEmail(auth, email);
+          showAlert(
+            "forgotAlert",
+            "alert-success",
+            "✔ Tautan pemulihan telah dikirim ke " +
+              email +
+              ". Periksa kotak masuk dan folder spam Anda.",
+          );
+        } catch (e) {
+          showAlert(
+            "forgotAlert",
+            "alert-error",
+            "✕ " + translateError(e.code),
+          );
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = "✦ KIRIM TAUTAN PEMULIHAN";
+        }
+      };
+
+      function showAlert(id, cls, msg) {
+        const el = document.getElementById(id);
+        el.className = "alert-box " + cls;
+        el.textContent = msg;
+        el.style.display = "block";
+      }
+
+      function clearAlert(id) {
+        const el = document.getElementById(id);
+        el.style.display = "none";
+        el.textContent = "";
+        el.className = "alert-box";
+      }
+
+      function translateError(code) {
+        const map = {
+          "auth/invalid-email": "Format surel tidak valid.",
+          "auth/user-not-found": "Akun dengan surel ini tidak ditemukan.",
+          "auth/wrong-password": "Kata sandi salah.",
+          "auth/invalid-credential": "Surel atau kata sandi salah.",
+          "auth/too-many-requests":
+            "Terlalu banyak percobaan. Coba lagi nanti.",
+          "auth/network-request-failed":
+            "Gagal terhubung. Periksa koneksi internet Anda.",
+          "auth/user-disabled": "Akun ini telah dinonaktifkan.",
+        };
+        return map[code] || "Terjadi kesalahan. (" + code + ")";
+      }
+
+      // Enter key support
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          if (
+            document.getElementById("loginPanel").style.display !== "none" ||
+            !document.getElementById("forgotPanel").style.display
+          ) {
+            if (
+              document.getElementById("forgotPanel").style.display === "block"
+            ) {
+              doForgot();
+            } else {
+              doLogin();
+            }
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
